@@ -21,7 +21,7 @@ class ResultScreen extends Component {
                 title='Your Score'
               >
                 <View style={{ justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={style.textStyle}>{sumScore}/10</Text>
+                <Text style={style.textStyle}>{sumScore}</Text>
                 </View>
               </Card>
               <View style={{ marginTop: 15}}>
