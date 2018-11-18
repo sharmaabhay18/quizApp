@@ -5,6 +5,7 @@ import { StackActions, NavigationActions } from 'react-navigation';
 
 class ResultScreen extends Component {
     static navigationOptions = {
+        headerTitleStyle: { textAlign: 'center',flex:1,marginRight: '25%'  },
         title: 'Result'
       };
 
@@ -16,18 +17,20 @@ class ResultScreen extends Component {
       });
         return(
           <View>
-              <Card 
+              <Card
                 title='Your Score'
               >
                 <View style={{ justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={style.textStyle}>{sumScore}</Text>
+                <Text style={style.textStyle}>{sumScore}/10</Text>
                 </View>
               </Card>
+              <View style={{ marginTop: 15}}>
               <Button
                 title='Play Again'
                 style={style.buttonStyle}
-                onPress={() => this.props.navigation.dispatch(resetAction)} 
+                onPress={() => this.props.navigation.dispatch(resetAction)}
               />
+              </View>
           </View>
         );
     }
@@ -38,7 +41,7 @@ const style = {
         fontSize: 80,
         fontWeight: 'bold'
     },buttonStyle: {
-    marginTop: 15, 
+    marginTop: 15,
     marginBottom: 15,
     marginLeft: '1%',
     marginRight: '1%'

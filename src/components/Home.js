@@ -4,14 +4,16 @@ import { Button } from 'react-native-elements';
 
 class Home extends Component {
     static navigationOptions = {
+      headerTitleStyle: { textAlign: 'center',flex:1  },
       title: 'Home',
+
       headerBackTitle: null
     };
 
     render() {
     return (
         <View style={style.containerStyle}>
-            <Button 
+            <Button
               title='Start Quiz'
               large
               onPress={() => this.props.navigation.navigate('Test')}

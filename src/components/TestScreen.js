@@ -8,6 +8,7 @@ const DATA = quiz.data;
 
 class TestScreen extends Component {
     static navigationOptions = {
+      headerTitleStyle: { textAlign: 'center',flex:1, marginRight: '25%'  },
       title: 'Quiz Time',
       headerBackTitle: null
     };
@@ -15,7 +16,7 @@ class TestScreen extends Component {
       super();
       this.state = { sumScore: 0 };
     }
-    
+
     onPressHandler(value, item) {
       console.log(value);
       console.log(item);
@@ -23,11 +24,11 @@ class TestScreen extends Component {
       if( id && answer === value){
         this.setState(prevState => ({ sumScore: prevState.sumScore + 1 }));
       } else if(this.state.sumScore > 0 && answer !== value){
-        this.setState(prevState => ({ sumScore: prevState.sumScore - 1 }));
+        this.setState(prevState => ({ sumScore: prevState.sumScore  }));
       } else if(this.state.sumScore <= 0 && answer !== value ){
         this.setState({ sumScore: 0 })
       }
-     
+
   }
     renderCard = d => {
       return (<Card
@@ -41,20 +42,22 @@ class TestScreen extends Component {
       console.log(this.state.sumScore);
       const { sumScore } = this.state;
         return(
-          <ScrollView>
+          <ScrollView style={{ marginBottom: 15}}>
             <View style={{ marginTop: 15, justifyContent: 'center', alignItems: 'center'}}>
              <Text> Quiz On Movies Dialogue </Text>
-            </View> 
-              <FlatList 
+            </View>
+              <FlatList
                 data={DATA}
                 renderItem={this.renderCard}
                 keyExtractor={DATA => DATA.id}
               />
+              <View style={{ marginTop: 15}}>
               <Button
                 title='Submit'
                 style={style.buttonStyle}
-                onPress={() => this.props.navigation.navigate('Result',{ sumScore })} 
+                onPress={() => this.props.navigation.navigate('Result',{ sumScore })}
               />
+              </View>
           </ScrollView>
         );
     }
@@ -62,10 +65,10 @@ class TestScreen extends Component {
 
 const style = {
   buttonStyle: {
-    marginTop: 15, 
+    marginTop: 15,
     marginBottom: 15,
-    marginLeft: '1%',
-    marginRight: '1%'
+    marginLeft: '2%',
+    marginRight: '2%'
   },
   textStyle: {
     fontSize: 22,

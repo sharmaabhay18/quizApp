@@ -8,12 +8,12 @@ import ResultScreen from './components/ResultScreen';
 export default class App extends Component {
 
   render() {
-    
+
      const MainNavigator = createStackNavigator({
        Home: Home,
        Test: TestScreen,
        Result: ResultScreen
-     });
+     }, {headerLayoutPreset: 'center'});
 
     return (
       <View style={{ flex: 1 }}>
@@ -22,4 +22,3 @@ export default class App extends Component {
     );
   }
 }
-
